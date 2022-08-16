@@ -1,0 +1,38 @@
+{
+	"private": true,
+	"sideEffects": false,
+	"scripts": {
+		"ts": "node -r esbuild-register",
+		"start": "remix-serve build",
+		"build": "remix build",
+		"fmt": "dprint fmt",
+		"dev": "remix dev"
+	},
+	"prisma": {
+		"seed": "yarn ts prisma/seed"
+	},
+	"dependencies": {
+		"@prisma/client": "^4.2.1",
+		"@remix-run/node": "^1.6.8",
+		"@remix-run/react": "^1.6.8",
+		"@remix-run/serve": "^1.6.8",
+		"bcryptjs": "^2.4.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@remix-run/dev": "^1.6.8",
+		"@remix-run/eslint-config": "^1.6.8",
+		"@types/bcryptjs": "^2.4.2",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
+		"dprint": "^0.30.3",
+		"esbuild-register": "^3.3.3",
+		"eslint": "^8.20.0",
+		"prisma": "^4.2.1",
+		"typescript": "^4.7.4"
+	},
+	"engines": {
+		"node": ">=14"
+	}
+}
