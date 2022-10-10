@@ -7,6 +7,9 @@
 From your terminal:
 
 ```sh
+yarn # To install all packages.
+## Be sure to make a `.env` file following the `.env.example`.
+yarn prisma db pull # To turn your database schema into a Prisma schema.
 yarn dev
 ```
 

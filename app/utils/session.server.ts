@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import { compare, hash } from "bcryptjs";
 
 import { createCookieSessionStorage, redirect } from "@remix-run/node";
 
@@ -11,7 +11,7 @@ export async function login({ username, password }: LoginForm) {
 
 	if (user === null) return null;
 
-	const isCorrectPassword = await bcrypt.compare(password, user.passwordHash);
+	const isCorrectPassword = await compare(password, user.passwordHash);
 
 	if (isCorrectPassword === false) return null;
 
@@ -19,7 +19,7 @@ export async function login({ username, password }: LoginForm) {
 }
 
 export async function register({ username, password }: LoginForm) {
-	const passwordHash = await bcrypt.hash(password, 10);
+	const passwordHash = await hash(password, 10);
 
 	const user = await db.user.create({ data: { username, passwordHash } });
 
@@ -27,7 +27,10 @@ export async function register({ username, password }: LoginForm) {
 }
 
 const sessionSecret = process.env.SESSION_SECRET;
-if (!sessionSecret) throw new Error("SESSION_SECRET is not set!");
+if (!sessionSecret)
+	throw new Error(
+		"SESSION_SECRET is not set! One way you can get one is to type on your terminal: `uuid`.",
+	);
 
 const storage = createCookieSessionStorage({
 	cookie: {
