@@ -1,6 +1,5 @@
-import { compare, hash } from "bcryptjs";
-
 import { createCookieSessionStorage, redirect } from "@remix-run/node";
+import { compare, hash } from "bcryptjs";
 
 import { db } from "./db.server";
 
