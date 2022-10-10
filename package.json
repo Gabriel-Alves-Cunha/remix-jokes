@@ -3,13 +3,13 @@
 	"sideEffects": false,
 	"scripts": {
 		"run-ts": "node -r esbuild-register",
+		"seed": "yarn run-ts prisma/seed",
 		"start": "remix-serve build",
 		"build": "remix build",
 		"fmt": "dprint fmt",
 		"dev": "remix dev"
 	},
 	"prisma": {
-		"seed": "yarn run-ts prisma/seed"
 	},
 	"dependencies": {
 		"@prisma/client": "^4.4.0",
